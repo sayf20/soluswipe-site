@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://soluswipe.com/sitemap.xml
