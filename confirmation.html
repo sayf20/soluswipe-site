@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation de votre adresse — SoluSwipe</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/"><img src="logo-mark.png" alt="" aria-hidden="true">SoluSwipe</a>
+      <nav class="nav">
+        <a href="support.html">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container" style="max-width:560px;text-align:center;padding-top:24px;">
+
+        <div id="state-success" class="card" style="padding:40px 28px;">
+          <div class="icon" style="margin:0 auto 18px;background:linear-gradient(135deg,#10B981,#0e9f6e);">✓</div>
+          <h2 class="section-title" style="margin-bottom:10px;">Adresse confirmée !</h2>
+          <p style="color:var(--text-soft);margin-bottom:22px;">
+            Votre compte SoluSwipe est activé. Retournez dans l'application
+            et connectez-vous avec votre email et votre mot de passe.
+          </p>
+          <p class="note" style="color:var(--text-soft);font-size:.85rem;">
+            Vous pouvez fermer cette page.
+          </p>
+        </div>
+
+        <div id="state-error" class="card" style="padding:40px 28px;display:none;">
+          <div class="icon" style="margin:0 auto 18px;background:linear-gradient(135deg,#e6a23c,#d97706);">!</div>
+          <h2 class="section-title" style="margin-bottom:10px;">Ce lien n'est plus valide</h2>
+          <p style="color:var(--text-soft);margin-bottom:14px;">
+            Le lien de confirmation a expiré ou a déjà été utilisé.
+          </p>
+          <p style="color:var(--text-soft);margin-bottom:22px;">
+            Pas d'inquiétude : ouvrez l'application SoluSwipe et appuyez sur
+            <strong>« Renvoyer l'email »</strong> sur l'écran d'inscription —
+            un nouveau lien arrivera aussitôt. Si vous avez déjà confirmé votre
+            adresse, connectez-vous simplement.
+          </p>
+          <p class="note" style="font-size:.85rem;">
+            Besoin d'aide ? <a href="support.html">Contactez le support</a>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Supabase renvoie les erreurs dans le fragment : #error=…&error_code=otp_expired…
+    (function () {
+      var h = (window.location.hash || '') + (window.location.search || '');
+      if (/error/i.test(h)) {
+        document.getElementById('state-success').style.display = 'none';
+        document.getElementById('state-error').style.display = 'block';
+      }
+    })();
+  </script>
+</body>
+</html>
