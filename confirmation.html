@@ -60,6 +60,9 @@
     // Supabase renvoie les erreurs dans le fragment : #error=…&error_code=otp_expired…
     (function () {
       var h = (window.location.hash || '') + (window.location.search || '');
+      // Les jetons (access_token, refresh_token) arrivent dans le fragment : on les
+      // retire de la barre d'adresse et de l'historique dès la lecture (audit 28/09, m49).
+      try { history.replaceState(null, '', window.location.pathname); } catch (e) {}
       if (/error/i.test(h)) {
         document.getElementById('state-success').style.display = 'none';
         document.getElementById('state-error').style.display = 'block';
