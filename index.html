@@ -1,147 +1,53 @@
+
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SoluSwipe — Trouvez votre alternance ou votre stage en swipant</title>
-  <meta name="description" content="SoluSwipe est une application mobile qui aide étudiants et jeunes diplômés à trouver alternance, apprentissage et stage en France : des offres réelles à swiper, un score de compatibilité, des lettres de motivation et CV assistés par IA, et une candidature guidée.">
-  <link rel="canonical" href="https://soluswipe.com/">
-  <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <meta property="og:title" content="SoluSwipe — Trouvez votre alternance ou votre stage en swipant">
-  <meta property="og:description" content="Des offres réelles à swiper, un score de compatibilité honnête, des lettres et CV assistés par IA, et une candidature guidée pas à pas.">
-  <meta property="og:image" content="https://soluswipe.com/og-image.png">
-  <meta property="og:url" content="https://soluswipe.com/">
-  <meta property="og:type" content="website">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="/"><img src="logo-mark.png" alt="" aria-hidden="true">SoluSwipe</a>
-      <nav class="nav">
-        <a href="#fonctionnalites" class="hide-mobile">Fonctionnalités</a>
-        <a href="#comment" class="hide-mobile">Comment ça marche</a>
-        <a href="support.html">Support</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://yccdrpzwbagfukzxgphn.supabase.co wss://yccdrpzwbagfukzxgphn.supabase.co; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Votre alternance ou votre stage,<br>à un swipe de vous.</h1>
-        <p class="lead">
-          SoluSwipe réunit chaque jour des milliers d'offres réelles d'alternance, d'apprentissage
-          et de stage partout en France. Swipez celles qui vous plaisent, voyez votre score de
-          compatibilité, et candidatez en quelques minutes avec des lettres de motivation et des CV
-          préparés avec l'aide de l'IA.
-        </p>
-        <div class="badges">
-          <span class="badge"> Bientôt sur l'App Store</span>
-          <span class="badge">▶ Bientôt sur Google Play</span>
-        </div>
-        <p class="note">L'application est en cours de finalisation — la sortie approche.</p>
-      </div>
-    </section>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>SoluSwipe – Stages, alternances et premiers emplois</title>
+    <meta name="description" content="SoluSwipe : swipe des milliers de stages, alternances et premiers emplois mis à jour chaque heure, et postule avec des lettres et CV générés par l'IA." />
+    <meta name="author" content="SoluSwipe" />
+    <meta name="theme-color" content="#2f3b91" />
+    <!-- Première peinture AU THÈME, avant le CSS et le JS (05/10) : le corps était blanc le temps que
+         main.tsx pose la classe « dark » → éclair blanc au lancement en sombre. La CSP interdit tout
+         script inline (m57) : ce style suit le réglage système, puis /theme-init.js (script externe
+         classique, juste après) pose html.dark + html[data-theme] d'après le choix réel de
+         l'utilisateur, et main.tsx les garde en phase. Tokens d'index.css (:root / .dark). -->
+    <style>
+      html { background: #f6f6f4; }
+      html.dark, html[data-theme="dark"] { background: #12152a; }
+      /* Tant que React n'a rien rendu : l'indigo de marque, comme l'écran de lancement natif et le
+         SplashScreen qui suit — un seul écran de lancement, identique en clair et en sombre. */
+      #root:empty { position: fixed; inset: 0; background: #2f3b91; }
+      @media (prefers-color-scheme: dark) {
+        html:not([data-theme="light"]) { background: #12152a; --background: 224 20% 8%; }
+      }
+    </style>
+    <!-- Thème CHOISI (localStorage) avant la première peinture : script externe classique,
+         bloquant, autorisé par la CSP (script-src 'self'), hors du bundle. -->
+    <script src="/theme-init.js"></script>
+    <link rel="canonical" href="https://soluswipe.com/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <section id="fonctionnalites">
-      <div class="container">
-        <h2 class="section-title">Pensée pour les candidatures qui aboutissent</h2>
-        <p class="section-sub">Pas de fausses annonces, pas de formulaires sans fin : des offres fraîches, un vrai score, et de l'aide concrète à chaque étape.</p>
-        <div class="grid">
-          <div class="card">
-            <div class="icon">⇆</div>
-            <h3>Des offres réelles, à swiper</h3>
-            <p>Des milliers d'offres d'alternance, d'apprentissage et de stage collectées chaque jour auprès de sources officielles (France Travail, La Bonne Alternance…) et actualisées en continu.</p>
-          </div>
-          <div class="card">
-            <div class="icon">%</div>
-            <h3>Un score de compatibilité honnête</h3>
-            <p>Chaque carte affiche un score calculé à partir de votre profil réel — compétences, domaine, localisation, expérience — avec un indice de confiance, jamais un chiffre inventé.</p>
-          </div>
-          <div class="card">
-            <div class="icon">✍</div>
-            <h3>Lettres &amp; CV assistés par IA</h3>
-            <p>Des lettres de motivation uniques et adaptées à chaque offre, et des CV générés dans les structures attendues par les recruteurs (antichronologique, fonctionnel, mixte, ciblé) — compatibles ATS.</p>
-          </div>
-          <div class="card">
-            <div class="icon">➤</div>
-            <h3>Candidature assistée</h3>
-            <p>Un assistant pas à pas : vos documents prêts, vos informations copiées en un geste, le site officiel de l'offre ouvert dans l'app — vous candidatez sans vous perdre.</p>
-          </div>
-          <div class="card">
-            <div class="icon">📅</div>
-            <h3>Salons &amp; événements</h3>
-            <p>L'agenda des salons de recrutement et forums de l'alternance près de chez vous, avec rappels la veille et ajout au calendrier en un geste.</p>
-          </div>
-          <div class="card">
-            <div class="icon">💬</div>
-            <h3>Coach carrière IA</h3>
-            <p>Un assistant pour préparer vos entretiens, améliorer votre CV et répondre à vos questions d'orientation, disponible à tout moment dans l'application.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <meta property="og:title" content="SoluSwipe – Stages, alternances et premiers emplois" />
+    <meta property="og:url" content="https://soluswipe.com/" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:description" content="Swipe des milliers d'offres mises à jour chaque heure et postule avec des lettres et CV générés par l'IA." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://soluswipe.com/og-image.png" />
 
-    <section class="soft" id="comment">
-      <div class="container">
-        <h2 class="section-title">Comment ça marche</h2>
-        <p class="section-sub">Trois étapes, et votre candidature part avec les bons documents.</p>
-        <div class="steps">
-          <div class="step">
-            <div class="num">1</div>
-            <h3>Créez votre profil</h3>
-            <p>Importez votre CV : SoluSwipe en extrait vos compétences et expériences automatiquement.</p>
-          </div>
-          <div class="step">
-            <div class="num">2</div>
-            <h3>Swipez les offres</h3>
-            <p>Filtrez par domaine et par ville, regardez votre score de compatibilité, gardez les meilleures.</p>
-          </div>
-          <div class="step">
-            <div class="num">3</div>
-            <h3>Candidatez accompagné·e</h3>
-            <p>Lettre et CV prêts, informations copiées, site officiel ouvert : vous postulez en quelques minutes.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://soluswipe.com/og-image.png" />
+    <script type="module" crossorigin src="/assets/index-DOoP9n__.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-CNtP4-ci.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-C3Cajvse.css">
+  </head>
 
-    <section id="contact">
-      <div class="container">
-        <div class="contact-box">
-          <h2 class="section-title">Une question ? Écrivez-nous</h2>
-          <p class="section-sub">Notre équipe répond sous 48 h ouvrées.</p>
-          <a class="btn" href="mailto:contact@soluswipe.com">contact@soluswipe.com</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="cols">
-        <div>
-          <a class="brand" href="/"><img src="logo-mark.png" alt="" aria-hidden="true">SoluSwipe</a>
-          <p class="muted" style="font-size:.85rem; max-width:300px; margin-top:10px;">
-            L'application mobile qui aide étudiants et jeunes diplômés à décrocher alternance,
-            apprentissage et stage partout en France.
-          </p>
-        </div>
-        <nav aria-label="Liens légaux">
-          <strong style="font-size:.9rem;">Informations</strong>
-          <a href="mentions-legales.html">Mentions légales</a>
-          <a href="confidentialite.html">Politique de confidentialité</a>
-          <a href="conditions.html">Conditions d'utilisation</a>
-          <a href="cookies.html">Politique cookies</a>
-          <a href="remboursement.html">Remboursements</a>
-          <a href="support.html">Support &amp; contact</a>
-        </nav>
-      </div>
-      <p class="legal">© 2026 CareerSwipe SARL — SoluSwipe. Tous droits réservés.</p>
-    </div>
-  </footer>
-</body>
+  <body>
+    <div id="root"></div>
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+  </body>
 </html>

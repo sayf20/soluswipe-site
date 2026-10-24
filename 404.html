@@ -1,17 +1,53 @@
+
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page introuvable — SoluSwipe</title>
-  <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main class="container" style="text-align:center; padding:110px 20px;">
-    <h1 style="font-size:2rem; margin-bottom:10px;">Oups, cette page n'existe pas</h1>
-    <p style="color:var(--text-soft); margin-bottom:26px;">Le lien est peut-être ancien ou erroné.</p>
-    <a class="btn" href="/">Retour à l'accueil</a>
-  </main>
-</body>
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://yccdrpzwbagfukzxgphn.supabase.co wss://yccdrpzwbagfukzxgphn.supabase.co; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>SoluSwipe – Stages, alternances et premiers emplois</title>
+    <meta name="description" content="SoluSwipe : swipe des milliers de stages, alternances et premiers emplois mis à jour chaque heure, et postule avec des lettres et CV générés par l'IA." />
+    <meta name="author" content="SoluSwipe" />
+    <meta name="theme-color" content="#2f3b91" />
+    <!-- Première peinture AU THÈME, avant le CSS et le JS (05/10) : le corps était blanc le temps que
+         main.tsx pose la classe « dark » → éclair blanc au lancement en sombre. La CSP interdit tout
+         script inline (m57) : ce style suit le réglage système, puis /theme-init.js (script externe
+         classique, juste après) pose html.dark + html[data-theme] d'après le choix réel de
+         l'utilisateur, et main.tsx les garde en phase. Tokens d'index.css (:root / .dark). -->
+    <style>
+      html { background: #f6f6f4; }
+      html.dark, html[data-theme="dark"] { background: #12152a; }
+      /* Tant que React n'a rien rendu : l'indigo de marque, comme l'écran de lancement natif et le
+         SplashScreen qui suit — un seul écran de lancement, identique en clair et en sombre. */
+      #root:empty { position: fixed; inset: 0; background: #2f3b91; }
+      @media (prefers-color-scheme: dark) {
+        html:not([data-theme="light"]) { background: #12152a; --background: 224 20% 8%; }
+      }
+    </style>
+    <!-- Thème CHOISI (localStorage) avant la première peinture : script externe classique,
+         bloquant, autorisé par la CSP (script-src 'self'), hors du bundle. -->
+    <script src="/theme-init.js"></script>
+    <link rel="canonical" href="https://soluswipe.com/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:title" content="SoluSwipe – Stages, alternances et premiers emplois" />
+    <meta property="og:url" content="https://soluswipe.com/" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:description" content="Swipe des milliers d'offres mises à jour chaque heure et postule avec des lettres et CV générés par l'IA." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://soluswipe.com/og-image.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://soluswipe.com/og-image.png" />
+    <script type="module" crossorigin src="/assets/index-DOoP9n__.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-CNtP4-ci.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-C3Cajvse.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+  </body>
 </html>
