@@ -1,2 +1,0 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/web-Bqv6yN1S.js","assets/vendor-BEZXqN0u.js"])))=>i.map(i=>d[i]);
-import{b as t,_ as n}from"./vendor-BEZXqN0u.js";var i;(function(o){o[o.Sunday=1]="Sunday",o[o.Monday=2]="Monday",o[o.Tuesday=3]="Tuesday",o[o.Wednesday=4]="Wednesday",o[o.Thursday=5]="Thursday",o[o.Friday=6]="Friday",o[o.Saturday=7]="Saturday"})(i||(i={}));const a=t("LocalNotifications",{web:()=>n(()=>import("./web-Bqv6yN1S.js"),__vite__mapDeps([0,1])).then(o=>new o.LocalNotificationsWeb)});export{a as LocalNotifications,i as Weekday};
