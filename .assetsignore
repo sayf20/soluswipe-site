@@ -1,0 +1,11 @@
+# Fichiers du dépôt qui ne doivent PAS être publiés par Cloudflare (même syntaxe que .gitignore).
+.git
+.github
+.gitignore
+.nojekyll
+.assetsignore
+.wrangler
+node_modules
+CNAME
+README.md
+wrangler.jsonc

@@ -1,0 +1,14 @@
+// Hébergement de soluswipe.com sur Cloudflare (Workers, fichiers statiques). Guide : docs/HEBERGEMENT_CLOUDFLARE.md
+// dans le dépôt de l'app. Les fichiers publiés sont à la racine de ce dépôt ; .assetsignore écarte ce qui ne doit pas
+// l'être (.git, ce fichier, CNAME…). Routes de l'app (/swipe, /pricing…) : index.html servi avec un statut 200.
+{
+  "name": "soluswipe-site",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "single-page-application",
+    "html_handling": "auto-trailing-slash"
+  },
+  // Adresse de test *.workers.dev : utile avant la bascule, à passer à false une fois soluswipe.com servi par Cloudflare.
+  "workers_dev": true
+}
