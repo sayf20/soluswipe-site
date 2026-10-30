@@ -9,6 +9,7 @@
     "not_found_handling": "single-page-application",
     "html_handling": "auto-trailing-slash"
   },
-  // Adresse de test *.workers.dev : utile avant la bascule, à passer à false une fois soluswipe.com servi par Cloudflare.
-  "workers_dev": true
+  // Adresses de test *.workers.dev et de prévisualisation coupées depuis la bascule (29/10/2026) : soluswipe.com seul.
+  "workers_dev": false,
+  "preview_urls": false
 }
